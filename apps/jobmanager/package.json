@@ -10,7 +10,6 @@
     "dev": "pnpm with-env pnpm pm2rt start ecosystem.config.cjs",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint .",
-    "lint:docker": "hadolint ./Dockerfile",
     "pm2": "pm2",
     "pm2rt": "pm2-runtime",
     "start": "node --import tsx src/index.ts",
