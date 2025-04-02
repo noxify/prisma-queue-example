@@ -1,0 +1,42 @@
+{
+  "name": "@acme/logging",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./console": "./src/console.ts"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "clean:cache": "git clean -xdf .cache",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "prettier": "@acme/prettier-config",
+  "dependencies": {
+    "@loglayer/plugin-redaction": "2.0.4",
+    "@loglayer/transport-winston": "2.0.4",
+    "@t3-oss/env-core": "0.12.0",
+    "fast-redact": "3.5.0",
+    "kleur": "4.1.5",
+    "loglayer": "6.3.3",
+    "ora": "8.2.0",
+    "serialize-error": "12.0.0",
+    "winston": "3.17.0",
+    "zod": "3.24.2"
+  },
+  "devDependencies": {
+    "@acme/eslint-config": "workspace:*",
+    "@acme/prettier-config": "workspace:*",
+    "@acme/tsconfig": "workspace:*",
+    "@types/fast-redact": "3.0.4",
+    "@types/node": "22.13.16",
+    "eslint": "9.23.0",
+    "globby": "14.1.0",
+    "prettier": "3.5.3",
+    "typescript": "5.8.2"
+  }
+}

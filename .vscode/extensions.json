@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "yoavbls.pretty-ts-errors",
+    "prisma.prisma",
+    "vercel.turbo-vsc",
+    "foxundermoon.shell-format",
+    "bierner.comment-tagged-templates"
+  ]
+}

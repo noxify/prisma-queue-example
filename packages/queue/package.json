@@ -1,0 +1,43 @@
+{
+  "name": "@acme/queue",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./daily-queue": "./src/daily-queue.ts",
+    "./definitions/*": "./src/definitions/*.ts",
+    "./env": "./src/env.ts",
+    "./instant-queue": "./src/instant-queue.ts",
+    "./other-queue": "./src/other-queue.ts"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "clean:cache": "git clean -xdf .cache",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "prettier": "@acme/prettier-config",
+  "dependencies": {
+    "@acme/db": "workspace:*",
+    "@acme/logging": "workspace:*",
+    "@mgcrea/prisma-queue": "1.12.0",
+    "@t3-oss/env-core": "0.12.0",
+    "natural-cron": "1.0.2",
+    "p-map": "7.0.3"
+  },
+  "devDependencies": {
+    "@acme/eslint-config": "workspace:*",
+    "@acme/prettier-config": "workspace:*",
+    "@acme/tsconfig": "workspace:*",
+    "@types/react": "19.0.12",
+    "eslint": "9.23.0",
+    "globby": "14.1.0",
+    "prettier": "3.5.3",
+    "react": "19.1.0",
+    "tsx": "4.19.3",
+    "typescript": "5.8.2"
+  }
+}

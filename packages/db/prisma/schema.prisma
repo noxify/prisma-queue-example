@@ -1,0 +1,34 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["nativeDistinct", "relationJoins"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("RDS_URL")
+}
+
+model QueueJob {
+  id          BigInt    @id @default(autoincrement()) @db.BigInt
+  queue       String
+  key         String?
+  cron        String?
+  payload     Json?
+  result      Json?
+  error       Json?
+  progress    Int       @default(0)
+  priority    Int       @default(0)
+  attempts    Int       @default(0)
+  maxAttempts Int?
+  runAt       DateTime  @default(now())
+  notBefore   DateTime?
+  finishedAt  DateTime?
+  processedAt DateTime?
+  failedAt    DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @default(now()) @updatedAt
+
+  @@unique([key, runAt])
+  @@index([queue, priority, runAt, finishedAt])
+  @@map("queue_jobs")
+}

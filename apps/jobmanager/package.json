@@ -1,0 +1,42 @@
+{
+  "name": "jobmanager",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "_dev": "pnpm with-env tsx watch ./src/index.ts",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "clean:cache": "git clean -xdf .cache",
+    "dev": "pnpm with-env pnpm pm2rt start ecosystem.config.cjs",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint .",
+    "lint:docker": "hadolint ./Dockerfile",
+    "pm2": "pm2",
+    "pm2rt": "pm2-runtime",
+    "start": "node --import tsx src/index.ts",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "with-env": "dotenv -e ../../.env --"
+  },
+  "prettier": "@acme/prettier-config",
+  "dependencies": {
+    "@acme/db": "workspace:*",
+    "@acme/logging": "workspace:*",
+    "@acme/queue": "workspace:*",
+    "@t3-oss/env-core": "0.12.0",
+    "pm2": "6.0.5",
+    "tsx": "4.19.3",
+    "yargs": "17.7.2"
+  },
+  "devDependencies": {
+    "@acme/eslint-config": "workspace:*",
+    "@acme/prettier-config": "workspace:*",
+    "@acme/tsconfig": "workspace:*",
+    "@types/node": "22.13.16",
+    "@types/yargs": "17.0.33",
+    "dotenv-cli": "8.0.0",
+    "eslint": "9.23.0",
+    "globby": "14.1.0",
+    "prettier": "3.5.3",
+    "typescript": "5.8.2"
+  }
+}
